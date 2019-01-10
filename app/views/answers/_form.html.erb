@@ -1,0 +1,13 @@
+<%= simple_form_for @answer do |f| %>
+  <%= f.input :satisfaction_rating, label: 'How satisfied are you with your order?',
+    collection: 1..10, class: 'form-inline' %>
+  <%= f.input :shipping_rating, label: 'How satisfied are you with your shipping?',
+    collection: 1..10 %>
+  <%= f.input :products_quality_rating, label: 'How satisfied are you with the
+    quality of your products?', collection: 1..10 %>
+  <%= f.input :comment, label: 'Additional comments :' %>
+  <%= f.hidden_field :customer_name, value: @order_params[:customer_name]  %>
+  <%= f.hidden_field :customer_mail, value: @order_params[:customer_mail] %>
+  <%= f.hidden_field :order_id, value: @order_params[:order_id] %>
+  <%= f.button :submit, value: 'Send', class: "btn btn-primary" %>
+<% end %>
