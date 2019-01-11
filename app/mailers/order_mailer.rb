@@ -1,7 +1,6 @@
 class OrderMailer < ApplicationMailer
 
   def send_survey(order_params)
-
     @url_params = order_params
 
     @customer_name = order_params[:customer_name]
