@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
 
-  skip_before_action :verify_authenticity_token, only: :create
+  # skip_before_action :verify_authenticity_token, only: :create
+  include ShopifyApp::WebhookVerification
 
   def create
-    render_error and return if [:order_id, :customer_name, :customer_mail].any? { |k| permitted_params[k].blank? }
+    render_error and return if [:id, :name, :mail].any? { |k| permitted_params[k].blank? }
     OrderMailer.send_survey(permitted_params.to_h).deliver_now
   end
 
@@ -15,6 +16,6 @@ class OrdersController < ApplicationController
   end
 
   def permitted_params
-    params.permit(:order_id, :customer_name, :customer_mail)
+    params.permit(:id, :name, :mail)
   end
 end

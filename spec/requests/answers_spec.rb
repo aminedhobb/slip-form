@@ -15,9 +15,9 @@ RSpec.describe AnswersController do
       customer_name: 'amine',
       customer_mail: 'amine.dhobb@gmail.com',
       order_id: rand(100),
-      satisfaction_rating: rand(10),
-      products_quality_rating: rand(5),
-      shipping_rating: rand(10)
+      satisfaction_rating: rand(1..10),
+      products_quality_rating: rand(1..5),
+      shipping_rating: rand(1..10)
     }
   end
 

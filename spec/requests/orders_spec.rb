@@ -4,9 +4,9 @@ RSpec.describe OrdersController do
 
   let!(:order_params) do
     {
-      customer_name: 'amine',
-      customer_mail: 'amine.dhobb@gmail.com',
-      order_id: rand(100)
+      name: 'amine',
+      mail: 'amine.dhobb@gmail.com',
+      id: rand(100)
     }
   end
 
@@ -26,7 +26,7 @@ RSpec.describe OrdersController do
 
     context 'invalid request' do
       before do
-        order_params[:customer_name] = nil
+        order_params[:name] = nil
         post '/orders', params: order_params.to_json,
          headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }
       end

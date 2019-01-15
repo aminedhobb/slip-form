@@ -4,7 +4,7 @@
   <%= f.input :shipping_rating, label: 'How satisfied are you with your shipping?',
     collection: 1..10 %>
   <%= f.input :products_quality_rating, label: 'How satisfied are you with the
-    quality of your products?', collection: 1..10 %>
+    quality of your products?', collection: 1..5 %>
   <%= f.input :comment, label: 'Additional comments :' %>
   <%= f.hidden_field :customer_name, value: @order_params[:customer_name]  %>
   <%= f.hidden_field :customer_mail, value: @order_params[:customer_mail] %>

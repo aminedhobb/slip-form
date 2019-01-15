@@ -7,4 +7,8 @@ ShopifyApp.configure do |config|
   config.embedded_app = true
   config.after_authenticate_job = false
   config.session_repository = Shop
+
+  config.webhooks = [
+    {topic: 'order/fullfilled', address: 'http://shopify-survey-app.herokuapp.com/orders', fields: ['id', 'mail', 'name', 'line_items']}
+  ]
 end
