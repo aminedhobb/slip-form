@@ -27,8 +27,7 @@ class AnswersController < ApplicationController
   private
 
   def render_error
-    render json: { error: 'one or several parameters are missing' },
-           status: :unprocessable_entity
+    render file: 'public/422.html', status: :unprocessable_entity
   end
 
   def order_params
