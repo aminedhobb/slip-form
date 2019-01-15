@@ -1,8 +1,8 @@
 class AnswersController < ApplicationController
 
   def new
-    render_error and return if [:order_id, :customer_name, :customer_mail].any? { |k| order_params[k].nil? }
-    @answer = Answer.new(order_params)
+    render_error and return if [:order_id, :customer_name, :customer_mail].any? { |k| order_params[k].blank? }
+    @answer = Answer.new
     @order_params = order_params.to_h
   end
 

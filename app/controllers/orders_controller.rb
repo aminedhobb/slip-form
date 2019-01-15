@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
   def create
-    render_error and return if [:order_id, :customer_name, :customer_mail].any? { |k| permitted_params[k].nil? }
+    render_error and return if [:order_id, :customer_name, :customer_mail].any? { |k| permitted_params[k].blank? }
     OrderMailer.send_survey(permitted_params.to_h).deliver_now
   end
 

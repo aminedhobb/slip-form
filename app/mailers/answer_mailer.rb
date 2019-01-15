@@ -1,7 +1,6 @@
 class AnswerMailer < ApplicationMailer
 
   def answer_recap(answer_params)
-
     @answer_params = answer_params
     mail(
       to: "admin@slip.com",
@@ -9,5 +8,4 @@ class AnswerMailer < ApplicationMailer
       survey"
     )
   end
-
 end
