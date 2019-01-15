@@ -10,7 +10,8 @@ class OrdersController < ApplicationController
   private
 
   def render_error
-    render json: { error: 'one paramater is missing' }, status: :unprocessable_entity
+    render json: { error: 'one or several paramaters are missing' },
+           status: :unprocessable_entity
   end
 
   def permitted_params
