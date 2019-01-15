@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
-  # skip_before_action :verify_authenticity_token, only: :create
-  include ShopifyApp::WebhookVerification
+  skip_before_action :verify_authenticity_token, only: :create
+  # include ShopifyApp::WebhookVerification
 
   def create
     render_error and return if [:id, :name, :mail].any? { |k| permitted_params[k].blank? }
